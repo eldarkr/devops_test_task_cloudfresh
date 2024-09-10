@@ -1,6 +1,6 @@
 substitutions:
   _NAME: cloudfresh-test-task
-  _REGION: europe-central2
+  _REGION: us-central1
   _IMAGE: gcr.io/${PROJECT_ID}/${_NAME}:${SHORT_SHA}
 
 steps:
