@@ -1,4 +1,4 @@
-env:
+substitutions:
     NAME: cloudfresh-test-task
     REGION: europe-central2
     IMAGE: $gcr.io/${secrets.GCP_PROJECT_ID}/${NAME}:${COMMIT_SHA}
