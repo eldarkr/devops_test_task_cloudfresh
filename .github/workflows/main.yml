@@ -28,7 +28,3 @@ jobs:
         run: |
           source venv/bin/activate
           pytest
-  
-  deploy:
-    runs-on: ubuntu-latest
-    
