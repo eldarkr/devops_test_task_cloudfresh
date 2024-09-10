@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "App for test task"
+    return "Test task for Cloudfresh"
 
 
 if __name__ == '__main__':
