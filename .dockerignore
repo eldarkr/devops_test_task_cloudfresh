@@ -1,0 +1,16 @@
+.git
+Dockerfile
+.DS_Store
+.gitignore
+.dockerignore
+.env.samplecke
+*.yml
+*.yaml
+README.md
+.github
+.pytest_cache
+
+tests/
+screenshots
+__pycache__
+venv

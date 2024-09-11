@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.10.0-slim
 
 WORKDIR /flask_app
 
@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["python", "flask_app/app.py"]
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "flask_app.app:app"]

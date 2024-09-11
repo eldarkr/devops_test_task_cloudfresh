@@ -23,7 +23,6 @@ jobs:
       - name: Run Bandit
         run: bandit -r . --exclude tests
 
-
   test:
     runs-on: ubuntu-latest
     
