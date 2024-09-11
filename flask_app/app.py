@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask
 
 app = Flask(__name__)
@@ -9,4 +11,9 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, port=8080, host="0.0.0.0")
+    load_dotenv()
+    port = int(os.getenv("PORT"))
+    host = os.getenv("HOST")
+    debug = os.getenv("DEBUG")
+
+    app.run(debug=debug, port=port, host=host)
