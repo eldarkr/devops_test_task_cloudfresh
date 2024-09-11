@@ -1,11 +1,29 @@
-name: CICD
+name: CI
 
 on:
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
+  bandit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Bandit
+        run: pip install bandit
+
+      - name: Run Bandit
+        run: bandit -r . --exclude tests
+
+
   test:
     runs-on: ubuntu-latest
     
@@ -17,13 +35,7 @@ jobs:
         with:
           python-version: '3.10'
       
-      - run: |
-          python -m venv venv
-          source venv/bin/activate
-          pip install -r requirements.txt
+      - run: pip install -r requirements.txt
         
       - name: Run Tests
-        run: |
-          source venv/bin/activate
-          pytest
-          
+        run: pytest
