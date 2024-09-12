@@ -1,7 +1,5 @@
 ## Part 1: DevOps and DevSecOps
 
----
-
 #### 1.1. Setup a CI/CD Pipeline
 - First of all I created a very **minimalistic Flask application**. Nothing extra, as my goal is not to show off my web development skills.
 - Next, I created a simple **СI pipeline** that starts working as soon as a push to the main branch takes place.
@@ -17,3 +15,18 @@
     <img width="1142" src="screenshots/img2.png">
 - For **static code analysis**, I use **Bandit** because it is easy to integrate into CI. Setup is very simple. I specified the entire repository as the directory to scan and added the `tests` directory to ignore. Launched by the command: `bandit -r . --exclude tests`.
     <img width="1142" src="screenshots/img3.png">
+
+---
+
+## Part 2: Networking
+
+#### 2.1. Network Configuration and Troubleshooting
+- I created a VPC called `cloudfresh-task` and left all other settings at default.
+- Next, I created a subnet called `subnet-1`, set the region: `us-central1` and the IP address: `10.0.1.0/24`. Repeated the same settings for the second subnet with IP address `10.0.2.0/24`.
+- Next, in the **Firewall rules** section, I make settings to be able to use the `ping` command and remotely connect to the VM via `SSH`.
+    <img width="1142" src="screenshots/img4.png">
+- Created two VMs in previously created VPC with the cheapest settings.
+    <img width="1142" src="screenshots/img5.png">
+- Next, I SSH'd into `vm-test1` and checked if it was possible to communicate with `vm-test2`. In response, I received: `31 packets transmitted, 31 received, 0% packet loss, time 30704ms`
+    <img width="1142" src="screenshots/img6.png">
+- Since I **correctly configured the firewall** from the very beginning, I did not encounter any errors.
